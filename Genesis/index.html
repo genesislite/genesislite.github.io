@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <!-- Add the Orbitron font -->
+  <style>
+    /* Import the Orbitron font */
+    @font-face {
+      font-family: 'Orbitron';
+      src: url('images/Exo/static/Exo2-Medium.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Hide body overflow to prevent scrolling */
+    body.loading {
+      overflow: hidden;
+    }
+
+    body {
+      background-color: black;
+
+    }
+
+    /* Define sliding animation for the nav link */
+    @keyframes slideInMission {
+      0% {
+        transform: translateY(-200%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInContact {
+      0% {
+        transform: translateY(-200%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInGenesisLite {
+      0% {
+        transform: translateY(-200%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInTechnology {
+      0% {
+        transform: translateY(-200%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideFromBottom {
+      0% {
+        transform: translateY(200%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideFromBottomText {
+      0% {
+        transform: translateY(300%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideFromBottomFont {
+      0% {
+        transform: translateY(200%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Apply the sliding animation to the nav links */
+    .slide-in-mission {
+      animation: slideInMission 5s ease forwards;
+    }
+
+    .slide-in-genesis-lite {
+      animation: slideInGenesisLite 5s ease forwards;
+    }
+
+    .slide-in-contact {
+      animation: slideInContact 5s ease forwards;
+    }
+
+    .slide-in-technology {
+      animation: slideInTechnology 5s ease forwards;
+    }
+
+    .slide-in-text {
+      animation: slideFromBottomText 10s ease forwards; 
+    }
+
+    .slide-in-font {
+      animation: slideFromBottomFont 10s ease forwards; 
+    }
+
+    /* Initially hide the nav links */
+    .hidden {
+      transform: translateY(-100%);
+    }
+
+    /* Hide the video initially */
+    /* Adjust the z-index of the loading screen */
+    #loading-screen {
+      position: fixed; /* Changed to fixed */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999; /* Increased z-index */
+    }
+    #intro-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Apply Orbitron font to links */
+    nav a {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    /* Change link color on hover */
+    nav a:hover {
+      color: #666;
+    }
+
+    /* Add margin to the top of the div containing links */
+    .nav-links {
+      margin-top: 30px; /* Adjust this value as needed */
+    }
+
+    .nav-links2 {
+      margin-top: 40px; /* Adjust this value as needed */
+    }
+
+    /* Noise effect animation */
+    @keyframes noise {
+      0% { background-position: 0 0; }
+      25% { background-position: 10% 5%; }
+      50% { background-position: -5% -10%; }
+      75% { background-position: 5% 15%; }
+      100% { background-position: 0 0; }
+    }
+
+    /* Apply noise effect to the background */
+    .noise-bg {
+      animation: noise 0.5s infinite linear alternate-reverse;
+      background-image: url('images/noise2.png'); /* Adjust the path */
+      position: absolute;
+      content: '';
+      left: -50;
+      top: -100;
+      width: 100%;
+      height: 300%;
+      opacity: .20;
+      z-index: 2;
+      mix-blend-mode: overlay;
+    }
+
+    /* Style for the text "Featuring" */
+    .text-overlay {
+      position: absolute;
+      bottom: 0%; /* Adjust vertical position */
+      left: 40%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #ffffff;
+      font-size: 24px; /* Adjust font size */
+      z-index: 1; /* Ensure text appears on top of the image */
+      animation: slideFromBottom 9s ease forwards; /* Apply the sliding animation */
+    }
+
+    /* Style for the second text overlay */
+    .text-overlay2 {
+      position: absolute;
+      bottom: 100%; /* Adjust vertical position */
+      left: 30%; /* Adjust horizontal position */
+      transform: translateX(-50%);
+      text-align: center;
+      color: #ffffff;
+      font-size: 35px; /* Adjust font size */
+      animation: slideFromBottom 7s ease forwards; /* Apply the sliding animation */
+    }
+
+    .text-overlay3 {
+      position: absolute;
+      bottom: 30%; /* Adjust vertical position */
+      left: 70%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #ffffff;
+      font-size: 24px; /* Adjust font size */
+      z-index: 1; /* Ensure text appears on top of the image */
+
+    }
+
+  </style>
+  <link href="css/0.BCsos4jv.css" rel="stylesheet">
+  <title>The 01 Project</title>
+  <!-- HEAD_svelte-1uhmzd1_START -->
+  <!-- Meta tags -->
+  <!-- HEAD_svelte-1uhmzd1_END -->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+</head>
+<body data-sveltekit-preload-data="hover" class="loading">
+  <div style="display: contents">
+    <main>
+        <!-- Loading screen with the video -->
+        <div id="loading-screen">
+          <video id="intro-video" src="images/intro.mov" autoplay muted playsinline style="width: 100vw; height: 100vh; object-fit: cover; z-index: 9999;"></video>
+        </div>
+        <div class="relative h-screen cursor-default selection:bg-black selection:text-black">
+          <div class="noise-bg"></div>
+          <!-- Add this noise background div -->
+          <div class="absolute left-0 top-0 -z-20 h-full w-full opacity-100" data-svelte-h="svelte-1xjaja2">
+            <img src="images/white2.PNG" alt="" class="h-full w-full object-cover" style="object-fit: cover; position: absolute; z-index: 5;">
+            <video src="images/meow.mov" autoplay loop muted style="position: absolute; top: 120; left: 0; min-width: 100%; min-height: 130%; z-index: 1"></video>
+          </div>
+          <nav class="fixed top-0 z-10 flex w-full items-center justify-between px-6 py-6 text-white sm:px-12">
+            <div class="flex items-center space-x-4" data-svelte-h="svelte-whwhef">
+              <a href="/" class="h-8 w-8 rounded-full bg-white saturate-200"></a>
+            </div>
+            <div class="flex flex-col text-lg md:flex-row md:space-x-12 nav-links2" style="margin-left: -600px;">
+              <!-- Add class nav-links here -->
+              <a id="mission-link" href="file:///Users/toneanmorgan/Downloads/mission/index.html" class="hover:underline hidden slide-in-mission" data-svelte-h="svelte-13v0mlt" style="opacity: 1; transition: opacity 1s;">mission</a>
+              <a class="hover:underline hidden slide-in-contact" data-svelte-h="svelte-1tesvs7" href="file:///Users/toneanmorgan/Downloads/contact/index.html">contact</a>
+            </div>
+            <div class="flex flex-col text-lg md:flex-row md:space-x-12 nav-links" style="margin-right: 100px;">
+              <a id="genesis-lite-link" href="file:///Users/toneanmorgan/Downloads/genesis-lite/index.html" class="hover:underline hidden slide-in-genesis-lite" data-svelte-h="svelte-1n4njtj" style="opacity: 1; transition: opacity 1s;">genesis-lite</a>
+              <a href="https://0ggfznkwh4j.typeform.com/to/W5At4fmF" class="rounded border px-2 hover:underline hidden slide-in-technology" data-svelte-h="svelte-16er9ox">technology</a>
+            </div>
+          </nav>
+
+          
+          <section class="z-50 h-screen pb-24 sm:pb-0" data-svelte-h="svelte-oh3scy">
+            <div class="absolute left-0 top-0 -z-20 h-full w-full bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            <div id="hero" class="flex h-full flex-col justify-end p-6 text-white sm:p-12">
+              <div class="mb-4 featuring-text font-light sm:w-auto sm:text-7xl md:max-w-4xl text-overlay">Featuring </div>
+              <span class="mb-6 text-xl font-light hidden slide-in-text" style="color: rgb(255, 255, 255); animation: slideFromBottomText 5s ease forwards;">a new kind of video communication using holography.</span> <!-- Applied animation -->
+              <div class="flex w-full flex-wrap justify-between text-lg">
+                <div class="mb-4 flex w-full flex-col items-center justify-center gap-4 space-x-6 md:mb-0 md:mr-4 md:w-fit md:flex-row md:justify-start md:gap-0">
+                  <a href="https://buy.stripe.com/8wMbLV5tAgM20rSdQQ" class="h-min rounded-full border border-white px-3 py-1 text-white hover:bg-white hover:text-black hidden slide-in-font" style="animation: slideFromBottomFont 5s ease forwards;">Learn More </span></a>
+                  <a href="https://github.com/OpenInterpreter/01" class="!m-0 flex h-min items-center space-x-1 border-b border-white text-white hover:border-transparent md:!ml-4">
+                      <!-- <span style="color: #ffffff;" > Build your own</span>  -->
+                    <!-- <svg style="color: #ffffff;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-5 w-5"> -->
+                      <!-- <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>-->
+                    </svg>
+                  </a>
+                </div>
+                <a href="https://twitter.com/OpenInterpreter/status/1770821439458840846" class="align-center mx-auto mt-4 flex h-min items-center justify-center gap-1.5 rounded border border-white px-2 py-1 align-middle text-white hover:bg-white hover:text-black md:mx-0">Join the waitlist
+                  <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 24 24"><path d="M2 24v-24l20 12-20 12z"></path></svg>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- Video section -->
+          <section id="video-section" class="relative h-screen" style="overflow: hidden;">
+            <video src="images/meow.mov" autoplay loop muted style="position: absolute; top: 0; left: 0; min-width: 100%; min-height: 100%; z-index: 4"></video>
+            <video src="images/meow.mov" autoplay loop muted style="position: absolute; top: 0; left: 0; min-width: 100%; min-height: 130%; z-index: 1"></video>
+
+          </section>
+
+          <!-- First Image section -->
+          <section id="image-section" class="h-screen" style="opacity: 1; position: relative;">
+            <img src="images/mems.PNG" alt="Mems Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2;">
+            <img src="images/black.PNG" alt="SLM Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; transition: opacity 0.5s ease; z-index: 1;">
+            <div class="text-overlay3">
+              <p class="overlay-text">SMALL, SMALLER, SMALLEST.</p>
+              <p class="overlay-text3" >At the heart of Genesis is our innovative MEMS mirror projection system, miniaturized to fit seamlessly inside a smartwatch. This allows anyone with the watch to easily project their hologram with just their watch.</p>
+            </div>
+          </section>
+
+          <!-- Second Image section -->
+          
+          <section id="image-section2" class="h-screen" style="position: relative;">
+            <img src="images/bottom.PNG" alt="Mems Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2;">
+            <!--<img src="images/lidar2.PNG" alt="Mems Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2;"> -->
+            
+            <img src="images/black.PNG" alt="Second Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+            <p class="overlay-text4"> With Genesis, gone are the days of fumbling with your phone's camera to point and show something to a caller. User 2's hologram can simply walk around User 1's room, using the AR glasses that control the lifelike hologram and can see the environment. </p>
+
+            <div class="text-overlay2" style="position: relative; top:45%; left: 0%; transform: translateX(-50%); text-align: center; color: #ffffff; font-size: 35px;"> <!-- Adjusted CSS -->
+              <p class="overlay-text2" >THINK REALISTIC.</p>
+
+            </div>
+
+            <p class="overlay-text5" >Connecting people face-to-face, even closer. </p>
+
+            
+
+            <p class="overlay-text6">Video communication is just the beginning. Think of a world where you can project anything in front of you in a free form, anywhere you are.</p>
+
+
+
+
+          </section>
+          <!-- Third Image section -->
+
+          <section id="image-section3" class="h-screen" style="position: relative; overflow: hidden;" >
+            <!--  <img src="images/lidar3.png" alt="Third Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2;"> -->
+            <img src="images/black.PNG" alt="Fourth Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+          </section>
+          <!-- Fourth Image section -->
+          <section id="image-section4" class="h-screen" style="opacity: 1; position: relative;">
+            <img src="images/black.PNG" alt="Ball Image" style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; transition: opacity 0.5s ease; z-index: 1;">
+          </section>
+          <a class="language">クレイジーなことをしてください</a>
+          <a class="additional-text2">Founded 2024</a>
+          <a class="genesis-text">genesis</a> <!-- New Genesis text -->
+          <a class="hi">looking for more?</a>
+
+
+
+          <!-- </section>
+
+
+             <p class="overlay-text6">worth seeing.</p>
+            </div>
+          </section>
+--> 
+        </div>
+
+        
+    </main>
+  </div>
+
+
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  var video = document.getElementById('intro-video');
+  var loadingScreen = document.getElementById('loading-screen');
+  var content = document.querySelector('main');
+  var body = document.body;
+
+  // Play the video
+  video.play();
+
+  // Show the video and remove loading class when it's loaded
+  video.onloadeddata = function() {
+    loadingScreen.style.display = 'flex';
+  };
+
+  // Fade out the video after a delay
+  setTimeout(function() {
+    fadeOut(video);
+    // Add class to slide in the nav link after fade out
+    document.getElementById('mission-link').classList.remove('hidden');
+    document.getElementById('mission-link').classList.add('slide-in-mission');
+    document.getElementById('genesis-lite-link').classList.remove('hidden');
+    document.getElementById('genesis-lite-link').classList.add('slide-in-genesis-lite');
+    document.querySelector('.slide-in-contact').classList.remove('hidden');
+    document.querySelector('.slide-in-contact').classList.add('slide-in-contact');
+    document.querySelector('.slide-in-technology').classList.remove('hidden');
+    document.querySelector('.slide-in-technology').classList.add('slide-in-technology');
+    document.querySelector('.slide-in-text').classList.remove('hidden');
+    document.querySelector('.slide-in-text').classList.add('slide-in-text');
+    document.querySelector('.slide-in-font').classList.remove('hidden');
+    document.querySelector('.slide-in-font').classList.add('slide-in-font');
+  }, 2500); // Adjust the delay time as needed (in milliseconds)
+
+  function fadeOut(element) {
+    var opacity = 1;
+    var interval = setInterval(function() {
+      if (opacity <= 0) {
+        clearInterval(interval);
+        element.style.opacity = 0;
+        element.style.display = 'none'; // Hide the video after fading out
+        loadingScreen.style.display = 'none'; // Hide the loading screen
+        content.style.display = 'block'; // Show the content div
+        body.style.overflow = 'auto'; // Allow scrolling
+      } else {
+        element.style.opacity = opacity;
+        opacity -= 0.01; // Adjust the decrement value for speed
+      }
+    }, 10); // Adjust the interval for smoothness
+  }
+});
+
+
+    window.addEventListener('scroll', function() {
+      const scrollPos = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const videoSection = document.getElementById('video-section');
+      const imageSection = document.getElementById('image-section');
+      const imageSection2 = document.getElementById('image-section2');
+      const imageSection3 = document.getElementById('image-section3');
+      const imageSection4 = document.getElementById('image-section4');
+
+      if (videoSection && imageSection && imageSection2) {
+        const videoSectionHeight = videoSection.offsetHeight;
+        const imageSectionTop = imageSection.offsetTop;
+
+        const opacity = 1 - Math.max(0, Math.min(1, (scrollPos + windowHeight - imageSectionTop) / videoSectionHeight));
+
+        videoSection.style.opacity = opacity;
+        imageSection.style.opacity = 1 - opacity;
+        imageSection2.style.opacity = 1;
+      }
+    });
+
+  </script>
+</body>
+</html>
